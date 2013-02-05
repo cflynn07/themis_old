@@ -3,4 +3,4 @@ www:
   approot: main
   config:
     node_version: v0.8.x
-  postinstall: coffee -c ./
+  postinstall: node_modules/coffee-script/bin/coffee -c ./
