@@ -14,7 +14,7 @@ app.configure () ->
 	app.use express.bodyParser()
 	app.use express.methodOverride()
 	app.use express.cookieParser 'kiueg0853n3wds0f8a2nrsdfsfg-48vzxnvzwabh-1sfasgas'
-	app.use express.session
+	#app.use express.session
 	app.use app.router
 	app.use express.static path.join __dirname, 'public'
 
