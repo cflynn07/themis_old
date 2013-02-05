@@ -1,6 +1,6 @@
 www:
   type: nodejs
   approot: main
+  postinstall: node_modules/coffee-script/bin/coffee -c ./
   config:
     node_version: v0.8.x
-  postinstall: node_modules/coffee-script/bin/coffee -c ./
