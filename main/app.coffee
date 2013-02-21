@@ -2,11 +2,11 @@ express = require 'express.io'
 http    = require 'http'
 path    = require 'path'
 
-app = express()
+app = express().http().io()
 
 app.configure () ->
 	app.set 'port', process.env.PORT || 8080
-	app.set 'views', __dirname + '/app/views'
+	app.set 'views', __dirname + '/server/views'
 	app.set 'view engine', 'hjs'
 	app.use express.favicon()
 	app.use express.logger('dev')
@@ -15,7 +15,8 @@ app.configure () ->
 	app.use express.cookieParser 'fc5422223ed4bcfdf92ab07ba3c7baf6'
 	#app.use express.session
 	app.use app.router
-	app.use express.static path.join __dirname, 'public'
+	app.use express.static path.join __dirname, 'client'
+
 
 app.configure 'development', ->
   app.use express.errorHandler()
@@ -26,13 +27,11 @@ app.configure 'development', ->
 
 
 app.get '/', (req, res) ->
-  console.log (res)
-  res.send 'food'
+  res.render 'index', null
 
 
-
-
-
-
-http.createServer(app).listen app.get('port'), ->
-  console.log 'Express server listening on port ' + app.get 'port'
+app.io.route 'ready', (req) ->
+  console.log 'ready recieved' 
+  req.io.emit 'foo', big_data
+  
+app.listen app.get 'port'  
