@@ -6,13 +6,12 @@
     "start": "node app"
   },
   "dependencies": {
-    "express":       "3.0.6",
+    "express.io":     "*",
     "hjs":           "*",
-    "coffee-script": "1.4.0",
-    "async":         "0.2.1",
-    "socket.io":     "0.9.13",
-    "dnode":         "1.0.2",
-    "requirejs":     "2.1.4",
-    "bcrypt":        "0.7.3"
+    "coffee-script": "*",
+    "async":         "*",
+    "dnode":         "*",
+    "requirejs":     "*",
+    "bcrypt":        "*"
   }
 }
