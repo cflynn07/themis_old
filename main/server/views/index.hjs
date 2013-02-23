@@ -4,6 +4,8 @@
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <!-- BEGIN HEAD -->
 <head>
+	
+	
 	<meta charset="utf-8" />
 	<title>Themis | Cobar Systems</title>
 	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -21,7 +23,10 @@
 	<link rel="stylesheet" type="text/css" href="assets/bootstrap-daterangepicker/daterangepicker.css" />
 	<link href="assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
 	<link href="assets/jqvmap/jqvmap/jqvmap.css" media="screen" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="assets/bootstrap-toggle-buttons/static/stylesheets/bootstrap-toggle-buttons.css" />
 	<link rel="shortcut icon" href="favicon.ico" />
+	
+	
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -53,15 +58,17 @@
         </div>
       </div>
       <div class="form-actions">
-        <label class="checkbox">
-        <input type="checkbox" /> Remember me
-        </label>
-        <a href="index.html" id="login-btn" class="btn green pull-right">
-        Login <i class="m-icon-swapright m-icon-white"></i>
-        </a>            
+        
+         <label class="checkbox">Remember me</label></br>
+         <div style="float:left;" class="basic-toggle-button">
+            <input type="checkbox" class="toggle" name="remember_me" />
+         </div>
+        
+        <a href="index.html" id="login-btn" class="btn green pull-right">Login <i class="m-icon-swapright m-icon-white"></i></a>
+        
       </div>
       <div class="forget-password">
-        <h4>Forgot your password ?</h4>
+        <h4>Forgot your password?</h4>
         <p>
           no worries, click <a href="javascript:;" class="" id="forget-password">here</a>
           to reset your password.
@@ -71,7 +78,7 @@
     <!-- END LOGIN FORM -->        
     <!-- BEGIN FORGOT PASSWORD FORM -->
     <form class="form-vertical forget-form" action="index.html">
-      <h3 class="">Forget Password ?</h3>
+      <h3 class="">Forget Password?</h3>
       <p>Enter your e-mail address below to reset your password.</p>
       <div class="control-group">
         <div class="controls">
@@ -103,25 +110,30 @@
 
   <script src="assets/js/jquery-1.8.3.min.js"></script>
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>  
-  <script src="assets/uniform/jquery.uniform.min.js"></script> 
-  <script src="assets/js/jquery.blockui.js"></script>
+  <script src="assets/uniform/jquery.uniform.min.js"></script>
+  <script src="assets/bootstrap-toggle-buttons/static/js/jquery.toggle.buttons.js"></script>
+  <script src="assets/js/app.js"></script>
+
+
+
   <script src="assets/js/jquery.blockui.js"></script>
   <script>
-    jQuery(document).ready(function() {     
-   //   App.initLogin();
+    jQuery(document).ready(function() {
+   	  App.initLogin();
+   	  $('.basic-toggle-button').toggleButtons();
     });
   </script>
   <script>
 	  window.socket = io.connect();
 	
 	  // Emit ready event.
-	  window.socket.emit('ready', 'We are ready');
+	  window.socket.emit('ready', 'We are ready', function(data){	  	
+	  	alert('server response: ' + data);	  	
+	  });
 	
 	  // Listen for session event.
-	  window.socket.on('foo', function(data) {
-	  
-	  	alert(data);
-	  
+	  window.socket.on('foo', function(data) {	  
+	  //	alert(data);
 	  });
   </script>
   <!-- END JAVASCRIPTS -->

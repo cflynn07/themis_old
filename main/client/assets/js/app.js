@@ -2360,7 +2360,7 @@ var App = function () {
             handleFormWizards();
         },
 
-        hadleResponsiveElements: function () {
+        handleResponsiveElements: function () {
 
         },
 

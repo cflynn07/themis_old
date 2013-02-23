@@ -425,6 +425,7 @@ Page content
   min-height: 800px;    
   padding: 0px;
   background-color: #fff; 
+  background-image: url('http://www.keenthemes.com/preview/conquer/assets/img/body-bg.png');
 }
 
 .ie8 .page-content { 

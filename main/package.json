@@ -3,14 +3,13 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node app"
+    "start": "node server"
   },
   "dependencies": {
     "express.io":    "*",
     "hjs":           "*",
     "coffee-script": "*",
     "async":         "*",
-    "dnode":         "*",
     "requirejs":     "*",
     "bcrypt":        "*",
     "hjs":           "*"
