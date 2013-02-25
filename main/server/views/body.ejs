@@ -119,6 +119,22 @@
 <% } %>  
 
 <script src="assets/js/jquery-1.8.3.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  window.socket = io.connect();
+
+  // Emit ready event.
+  window.socket.emit('ready', 'We are ready', function(data){	  	
+  	console.log(data);
+  });
+
+  // Listen for session event.
+  window.socket.on('foo', function(data) {	  
+  //	alert(data);
+  });
+</script>
+
+
 <script type="text/javascript" data-main="/client" src="/assets/requirejs/require.js"></script>
 
 </body>

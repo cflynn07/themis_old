@@ -1,5 +1,10 @@
-require [], () ->
+requirejs.config 
+  baseUrl: '/'
+  paths:
+    text: "/assets/requirejs/text"
+  shim: {}
+
+require ['modules/login'], (Login) ->
+  
   console.log 'loaded'
-  setTimeout () ->
-      $('#loading_indicator').fadeOut();
-    , 5000
+  console.log  arguments

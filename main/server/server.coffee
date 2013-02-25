@@ -46,14 +46,22 @@ app.get '/', (req, res) ->
 
 app.io.route 'ready', (req) ->
   t0 = Date.now()
+   
+  if !req.session.last?
+    req.session.last = t0
+  else
+    req.session.last = req.session.now
   
-  bcrypt.genSalt 16, (err, salt) ->
-    bcrypt.hash "ILikeBunnies", salt, (err, hash) ->
-      console.log 'Password hashed: ' + (Date.now() - t0)
-      
-      bcrypt.compare "ILikeBunnies", hash, (err, res) ->
-        console.log 'Finished: ' + res
-        console.log 'Password checked: ' +  (Date.now() - t0)
+  req.session.now = t0
+  req.io.respond req.session
+  
+  #bcrypt.genSalt 16, (err, salt) ->
+  #  bcrypt.hash "ILikeBunnies", salt, (err, hash) ->
+  #    console.log 'Password hashed: ' + (Date.now() - t0)
+  #    
+  #    bcrypt.compare "ILikeBunnies", hash, (err, res) ->
+  #      console.log 'Finished: ' + res
+  #      console.log 'Password checked: ' +  (Date.now() - t0)
       
       
       
