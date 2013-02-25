@@ -21,7 +21,3 @@ thumbs.db
 .Trashes
 Icon?
 npm-debug.log
-
-# Don't store compiled coffee-script files
-*.js
-!assets/*.js
