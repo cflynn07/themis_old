@@ -12,6 +12,7 @@
     "async":         "*",
     "requirejs":     "*",
     "bcrypt":        "*",
-    "ejs":           "*"
+    "ejs":           "*",
+    "cssmin":		 "*"
   }
 }
