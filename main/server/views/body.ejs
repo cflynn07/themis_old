@@ -118,6 +118,9 @@
 
 <% } %>  
 
+
+
+
 <script src="assets/js/jquery-1.8.3.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script>
@@ -135,7 +138,23 @@
 </script>
 
 
-<script type="text/javascript" data-main="/client" src="/assets/requirejs/require.js"></script>
+
+
+
+
+<% if(false){ %>
+
+	<script type="text/javascript" data-main="/client" src="/assets/requirejs/require.js"></script>
+
+<% }else{ %>
+	
+	<script type="text/javascript" src="/build.js"></script>
+	
+<% } %>
+
+
+
+
 
 </body>
 <!-- END BODY -->
